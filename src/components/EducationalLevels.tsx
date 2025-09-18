@@ -1,5 +1,13 @@
-
-import { GraduationCap, Users, BookOpen, Baby, School, Dumbbell, CheckCircle, UserCheck } from 'lucide-react';
+import {
+  GraduationCap,
+  Users,
+  BookOpen,
+  Baby,
+  School,
+  Dumbbell,
+  CheckCircle,
+  UserCheck,
+} from "lucide-react"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -8,55 +16,58 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from "@/components/ui/alert-dialog"
 
 const EducationalLevels = () => {
   const levels = [
     {
       title: "Salas de 4 y 5 años",
       subtitle: "Turno Mañana",
-      description: "Primeros pasos en el aprendizaje con juego, creatividad y valores cristianos. Nuestros pequeños descubren el mundo en un ambiente de amor y seguridad.",
+      description:
+        "Primeros pasos en el aprendizaje con juego, creatividad y valores cristianos. Nuestros pequeños descubren el mundo en un ambiente de amor y seguridad.",
       features: [
         "Desarrollo de la creatividad",
-        "Juegos educativos", 
+        "Juegos educativos",
         "Socialización temprana",
         "Formación en valores",
-        "Inglés"
+        "Inglés",
       ],
       icon: Baby,
-      gradient: "from-pink-400 to-rose-500"
+      gradient: "from-pink-400 to-rose-500",
     },
     {
       title: "Nivel Primario",
       subtitle: "Turno Mañana",
-      description: "Fundamentamos el aprendizaje con amor, creatividad y valores cristianos. Nuestros estudiantes desarrollan habilidades académicas y sociales en un ambiente estimulante.",
+      description:
+        "Fundamentamos el aprendizaje con amor, creatividad y valores cristianos. Nuestros estudiantes desarrollan habilidades académicas y sociales en un ambiente estimulante.",
       features: [
         "Educación personalizada",
-        "Talleres creativos y deportivos", 
+        "Talleres creativos y deportivos",
         "Formación en valores",
         "Acompañamiento integral",
         "Taller de Robótica e Informática",
-        "Inglés"
+        "Inglés",
       ],
       icon: School,
-      gradient: "from-blue-400 to-blue-600"
+      gradient: "from-blue-400 to-blue-600",
     },
     {
-      title: "Nivel Secundario", 
+      title: "Nivel Secundario",
       subtitle: "Orientación Educación Física - Turno Tarde",
-      description: "Preparamos adolescentes para los desafíos del futuro con excelencia académica y formación integral, con especial énfasis en la educación física y el deporte.",
+      description:
+        "Preparamos adolescentes para los desafíos del futuro con excelencia académica y formación integral, con especial énfasis en la educación física y el deporte.",
       features: [
         "Orientación en Educación Física",
         "Formación deportiva integral",
-        "Desarrollo del liderazgo", 
+        "Desarrollo del liderazgo",
         "Preparación universitaria",
         "Idiomas: Inglés y Portugués",
-        "Acompañamiento integral a estudiantes y sus familias en situaciones de crisis"
+        "Acompañamiento integral a estudiantes y sus familias en situaciones de crisis",
       ],
       icon: Dumbbell,
-      gradient: "from-green-400 to-emerald-600"
-    }
-  ];
+      gradient: "from-green-400 to-emerald-600",
+    },
+  ]
 
   const studentProfile = [
     "Es protagonista del proceso de enseñanza - aprendizaje",
@@ -66,8 +77,8 @@ const EducationalLevels = () => {
     "Manifiesta sentimientos de pertenencia, seguridad y confianza en sí mismo, para resolver situaciones problemáticas",
     "Tiene control de su cuerpo y seguridad en sus desplazamientos",
     "Conoce y relaciona hechos, fenómenos y situaciones del ambiente natural y social, y los explica",
-    "Valora la importancia del medio natural y de la calidad de la vida humana"
-  ];
+    "Valora la importancia del medio natural y de la calidad de la vida humana",
+  ]
 
   return (
     <section id="niveles" className="section-padding bg-gray-50">
@@ -78,20 +89,23 @@ const EducationalLevels = () => {
           </h2>
           <div className="w-24 h-1 bg-school-yellow mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Ofrecemos una educación integral desde salas de 4 y 5 años hasta quinto año del secundario, 
-            acompañando el crecimiento de nuestros estudiantes en cada etapa de su desarrollo.
+            Ofrecemos una educación integral desde salas de 4 y 5 años hasta
+            sexto año del secundario, acompañando el crecimiento de nuestros
+            estudiantes en cada etapa de su desarrollo.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {levels.map((level, index) => (
-            <div 
+            <div
               key={index}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Header with gradient */}
-              <div className={`bg-gradient-to-r ${level.gradient} p-8 text-white relative overflow-hidden`}>
+              <div
+                className={`bg-gradient-to-r ${level.gradient} p-8 text-white relative overflow-hidden`}
+              >
                 <div className="relative z-10">
                   <level.icon size={48} className="mb-4" />
                   <h3 className="text-2xl md:text-3xl font-playfair font-bold mb-2">
@@ -125,8 +139,12 @@ const EducationalLevels = () => {
 
                 {/* CTA Button */}
                 <div className="mt-8">
-                  <button 
-                    onClick={() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })}
+                  <button
+                    onClick={() =>
+                      document
+                        .querySelector("#contacto")
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
                     className="w-full bg-school-blue text-white py-3 rounded-lg font-semibold hover:bg-school-blue/90 transition-colors duration-300"
                   >
                     Más información
@@ -155,7 +173,10 @@ const EducationalLevels = () => {
                   <div className="space-y-4">
                     {studentProfile.map((trait, index) => (
                       <div key={index} className="flex items-start space-x-3">
-                        <CheckCircle className="text-school-yellow mt-0.5 flex-shrink-0" size={20} />
+                        <CheckCircle
+                          className="text-school-yellow mt-0.5 flex-shrink-0"
+                          size={20}
+                        />
                         <p className="text-gray-700 leading-relaxed">{trait}</p>
                       </div>
                     ))}
@@ -172,7 +193,7 @@ const EducationalLevels = () => {
         </div>
 
         {/* Stats section */}
-        <div className="mt-16 bg-school-blue rounded-2xl p-8 md:p-12">
+        {/* <div className="mt-16 bg-school-blue rounded-2xl p-8 md:p-12">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
               <div className="text-4xl md:text-5xl font-bold text-school-yellow mb-2">400+</div>
@@ -187,10 +208,10 @@ const EducationalLevels = () => {
               <p className="text-white">Años de trayectoria</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default EducationalLevels;
+export default EducationalLevels
