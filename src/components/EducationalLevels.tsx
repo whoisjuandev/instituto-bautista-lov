@@ -20,7 +20,8 @@ const EducationalLevels = () => {
         "Desarrollo de la creatividad",
         "Juegos educativos", 
         "Socialización temprana",
-        "Formación en valores"
+        "Formación en valores",
+        "Inglés"
       ],
       icon: Baby,
       gradient: "from-pink-400 to-rose-500"
@@ -33,7 +34,9 @@ const EducationalLevels = () => {
         "Educación personalizada",
         "Talleres creativos y deportivos", 
         "Formación en valores",
-        "Acompañamiento integral"
+        "Acompañamiento integral",
+        "Taller de Robótica e Informática",
+        "Inglés"
       ],
       icon: School,
       gradient: "from-blue-400 to-blue-600"
@@ -46,7 +49,9 @@ const EducationalLevels = () => {
         "Orientación en Educación Física",
         "Formación deportiva integral",
         "Desarrollo del liderazgo", 
-        "Preparación universitaria"
+        "Preparación universitaria",
+        "Idiomas: Inglés y Portugués",
+        "Acompañamiento integral a estudiantes y sus familias en situaciones de crisis"
       ],
       icon: Dumbbell,
       gradient: "from-green-400 to-emerald-600"
@@ -73,7 +78,7 @@ const EducationalLevels = () => {
           </h2>
           <div className="w-24 h-1 bg-school-yellow mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Ofrecemos una educación integral desde salas de 4 y 5 años hasta sexto año del secundario, 
+            Ofrecemos una educación integral desde salas de 4 y 5 años hasta quinto año del secundario, 
             acompañando el crecimiento de nuestros estudiantes en cada etapa de su desarrollo.
           </p>
         </div>
