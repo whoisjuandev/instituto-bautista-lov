@@ -1,5 +1,12 @@
 import { useState } from "react"
-import { FileText, Shirt, School, Download, ExternalLink } from "lucide-react"
+import {
+  FileText,
+  Shirt,
+  School,
+  Download,
+  ExternalLink,
+  AlertCircle,
+} from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -9,9 +16,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 
 const FamilyResources = () => {
-  const [openModal, setOpenModal] = useState<string | null>(null)
+  const [openModal, setOpenModal] = useState(null)
 
   const resources = [
     {
@@ -30,7 +38,7 @@ const FamilyResources = () => {
       id: "materiales",
       title: "Lista de Materiales 2026",
       icon: School,
-      description: "Lista completa para Nivel Inicial",
+      description: "Lista completa para Nivel Primario",
     },
   ]
 
@@ -77,29 +85,118 @@ const FamilyResources = () => {
     {
       name: "Autorización para Salida Individual",
       icon: FileText,
-      downloadUrl: "#",
+      downloadUrl:
+        "/pdfs/family-resources/formularios/autorizacion-salida-individual.pdf",
+      available: true,
     },
     {
       name: "Autorización para Salida Acompañada",
       icon: FileText,
-      downloadUrl: "#",
+      downloadUrl:
+        "/pdfs/family-resources/formularios/autorizacion-salida-acompanada.pdf",
+      available: true,
     },
     {
       name: "Ficha Médica Obligatoria",
       icon: FileText,
-      downloadUrl: "#",
+      downloadUrl:
+        "/pdfs/family-resources/formularios/ficha-medica-obligatoria.pdf",
+      available: true,
     },
   ]
 
   const materialesGrades = [
-    { grade: "1°", name: "1° Grado", downloadUrl: "#" },
-    { grade: "2°", name: "2° Grado", downloadUrl: "#" },
-    { grade: "3°", name: "3° Grado", downloadUrl: "#" },
-    { grade: "4°", name: "4° Grado", downloadUrl: "#" },
-    { grade: "5°", name: "5° Grado", downloadUrl: "#" },
-    { grade: "6°", name: "6° Grado", downloadUrl: "#" },
-    { grade: "7°", name: "7° Grado", downloadUrl: "#" },
+    {
+      grade: "1°",
+      name: "1° Grado",
+      downloadUrl:
+        "/pdfs/family-resources/nivel-primario/materiales-primer-grado.pdf",
+      available: true,
+    },
+    {
+      grade: "2°",
+      name: "2° Grado",
+      downloadUrl:
+        "/pdfs/family-resources/nivel-primario/materiales-segundo-grado.pdf",
+      available: true,
+    },
+    {
+      grade: "3°",
+      name: "3° Grado",
+      downloadUrl:
+        "/pdfs/family-resources/nivel-primario/materiales-tercer-grado.pdf",
+      available: true,
+    },
+    {
+      grade: "4°",
+      name: "4° Grado",
+      downloadUrl:
+        "/pdfs/family-resources/nivel-primario/materiales-cuarto-grado.pdf",
+      available: true,
+    },
+    {
+      grade: "5°",
+      name: "5° Grado",
+      downloadUrl:
+        "/pdfs/family-resources/nivel-primario/materiales-quinto-grado.pdf",
+      available: true,
+    },
+    {
+      grade: "6°",
+      name: "6° Grado",
+      downloadUrl:
+        "/pdfs/family-resources/nivel-primario/materiales-sexto-grado.pdf",
+      available: true,
+    },
+    {
+      grade: "7°",
+      name: "7° Grado",
+      downloadUrl:
+        "/pdfs/family-resources/nivel-primario/materiales-septimo-grado.pdf",
+      available: true,
+    },
   ]
+
+  // Función mejorada para manejar descargas
+  const handleDownload = (url, fileName, available) => {
+    if (!available) {
+      alert("Este documento estará disponible próximamente.")
+      return
+    }
+
+    // Abrir PDF en nueva pestaña
+    window.open(url, "_blank", "noopener,noreferrer")
+  }
+
+  // Función para scroll suave mejorada
+  const scrollToContact = () => {
+    const contactElement = document.querySelector("#contacto")
+    if (contactElement) {
+      contactElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    } else {
+      console.warn("Elemento #contacto no encontrado")
+    }
+  }
+
+  const ResourceCard = ({ resource, index }) => (
+    <div
+      className="bg-white border border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:shadow-lg hover:border-school-yellow/50 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in h-full flex flex-col justify-between"
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      <div>
+        <div className="w-16 h-16 bg-school-yellow rounded-full flex items-center justify-center mb-6 mx-auto">
+          <resource.icon className="text-school-blue" size={28} />
+        </div>
+        <h3 className="text-2xl font-semibold text-school-blue mb-4">
+          {resource.title}
+        </h3>
+        <p className="text-gray-600 leading-relaxed">{resource.description}</p>
+      </div>
+    </div>
+  )
 
   return (
     <section id="recursos-familias" className="section-padding bg-white">
@@ -123,24 +220,8 @@ const FamilyResources = () => {
               {resource.id === "uniformes" && (
                 <Dialog>
                   <DialogTrigger asChild>
-                    <div
-                      className="bg-white border border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:shadow-lg hover:border-school-yellow/50 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in h-full flex flex-col justify-between"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <div>
-                        <div className="w-16 h-16 bg-school-yellow rounded-full flex items-center justify-center mb-6 mx-auto">
-                          <resource.icon
-                            className="text-school-blue"
-                            size={28}
-                          />
-                        </div>
-                        <h3 className="text-2xl font-semibold text-school-blue mb-4">
-                          {resource.title}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed">
-                          {resource.description}
-                        </p>
-                      </div>
+                    <div>
+                      <ResourceCard resource={resource} index={index} />
                     </div>
                   </DialogTrigger>
                   <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
@@ -155,14 +236,17 @@ const FamilyResources = () => {
                     </DialogHeader>
                     <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
                       {uniformesByLevel.map((nivel, idx) => (
-                        <div key={idx} className="bg-gray-50 rounded-lg p-6">
+                        <div
+                          key={`nivel-${idx}`}
+                          className="bg-gray-50 rounded-lg p-6"
+                        >
                           <h4 className="text-lg font-semibold text-school-blue mb-4">
                             {nivel.level}
                           </h4>
-                          <ul className="space-y-2">
+                          <ul className="space-y-2" role="list">
                             {nivel.items.map((item, itemIdx) => (
                               <li
-                                key={itemIdx}
+                                key={`item-${idx}-${itemIdx}`}
                                 className="text-sm text-gray-700 leading-relaxed"
                               >
                                 • {item}
@@ -186,24 +270,8 @@ const FamilyResources = () => {
               {resource.id === "formularios" && (
                 <Dialog>
                   <DialogTrigger asChild>
-                    <div
-                      className="bg-white border border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:shadow-lg hover:border-school-yellow/50 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in h-full flex flex-col justify-between"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <div>
-                        <div className="w-16 h-16 bg-school-yellow rounded-full flex items-center justify-center mb-6 mx-auto">
-                          <resource.icon
-                            className="text-school-blue"
-                            size={28}
-                          />
-                        </div>
-                        <h3 className="text-2xl font-semibold text-school-blue mb-4">
-                          {resource.title}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed">
-                          {resource.description}
-                        </p>
-                      </div>
+                    <div>
+                      <ResourceCard resource={resource} index={index} />
                     </div>
                   </DialogTrigger>
                   <DialogContent className="max-w-2xl">
@@ -215,22 +283,47 @@ const FamilyResources = () => {
                         Descargá los formularios necesarios para el año lectivo.
                       </DialogDescription>
                     </DialogHeader>
+
+                    {/* Alerta para documentos no disponibles */}
+                    {forms.some((form) => !form.available) && (
+                      <Alert className="mt-4">
+                        <AlertCircle className="h-4 w-4" />
+                        <AlertDescription>
+                          Algunos documentos estarán disponibles próximamente.
+                        </AlertDescription>
+                      </Alert>
+                    )}
+
                     <div className="grid gap-4 mt-6">
                       {forms.map((form, idx) => (
                         <Button
-                          key={idx}
+                          key={`form-${idx}`}
                           variant="outline"
-                          className="h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow"
+                          className={`h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow ${
+                            !form.available
+                              ? "opacity-60 cursor-not-allowed"
+                              : ""
+                          }`}
                           onClick={() =>
-                            window.open(form.downloadUrl, "_blank")
+                            handleDownload(
+                              form.downloadUrl,
+                              form.name,
+                              form.available
+                            )
                           }
+                          disabled={!form.available}
                         >
                           <form.icon
                             className="text-school-blue mr-3"
                             size={20}
                           />
-                          <span className="text-school-blue font-medium">
+                          <span className="text-school-blue font-medium flex-1 text-left">
                             {form.name}
+                            {!form.available && (
+                              <span className="text-xs text-gray-500 block">
+                                (Próximamente)
+                              </span>
+                            )}
                           </span>
                           <Download
                             className="text-school-blue ml-auto"
@@ -247,52 +340,64 @@ const FamilyResources = () => {
               {resource.id === "materiales" && (
                 <Dialog>
                   <DialogTrigger asChild>
-                    <div
-                      className="bg-white border border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:shadow-lg hover:border-school-yellow/50 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in h-full flex flex-col justify-between"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <div>
-                        <div className="w-16 h-16 bg-school-yellow rounded-full flex items-center justify-center mb-6 mx-auto">
-                          <resource.icon
-                            className="text-school-blue"
-                            size={28}
-                          />
-                        </div>
-                        <h3 className="text-2xl font-semibold text-school-blue mb-4">
-                          {resource.title}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed">
-                          {resource.description}
-                        </p>
-                      </div>
+                    <div>
+                      <ResourceCard resource={resource} index={index} />
                     </div>
                   </DialogTrigger>
                   <DialogContent className="max-w-3xl">
                     <DialogHeader>
                       <DialogTitle className="text-2xl text-school-blue">
-                        Lista de Materiales 2026 - Nivel Inicial
+                        Lista de Materiales 2026 - Nivel Primario
                       </DialogTitle>
                       <DialogDescription>
                         Seleccioná el grado para descargar la lista de
                         materiales correspondiente.
                       </DialogDescription>
                     </DialogHeader>
+
+                    {/* Alerta para documentos no disponibles */}
+                    {materialesGrades.some(
+                      (material) => !material.available
+                    ) && (
+                      <Alert className="mt-4">
+                        <AlertCircle className="h-4 w-4" />
+                        <AlertDescription>
+                          Algunas listas de materiales estarán disponibles
+                          próximamente.
+                        </AlertDescription>
+                      </Alert>
+                    )}
+
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-6">
                       {materialesGrades.map((material, idx) => (
                         <Button
-                          key={idx}
+                          key={`material-${idx}`}
                           variant="outline"
-                          className="h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow"
+                          className={`h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow ${
+                            !material.available
+                              ? "opacity-60 cursor-not-allowed"
+                              : ""
+                          }`}
                           onClick={() =>
-                            window.open(material.downloadUrl, "_blank")
+                            handleDownload(
+                              material.downloadUrl,
+                              material.name,
+                              material.available
+                            )
                           }
+                          disabled={!material.available}
                         >
                           <FileText
                             className="text-school-blue mr-3"
                             size={20}
                           />
-                          <span className="text-school-blue font-medium">
+                          <span className="text-school-blue font-medium flex-1 text-left">
                             {material.name}
+                            {!material.available && (
+                              <span className="text-xs text-gray-500 block">
+                                (Próximamente)
+                              </span>
+                            )}
                           </span>
                           <Download
                             className="text-school-blue ml-auto"
@@ -313,14 +418,7 @@ const FamilyResources = () => {
           <p className="text-gray-700 mb-4">
             ¿Necesitás más información o tenés dudas sobre estos recursos?
           </p>
-          <Button
-            onClick={() =>
-              document
-                .querySelector("#contacto")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="btn-primary"
-          >
+          <Button onClick={scrollToContact} className="btn-primary">
             Contactanos
           </Button>
         </div>
