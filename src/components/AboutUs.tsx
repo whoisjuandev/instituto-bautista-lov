@@ -12,7 +12,7 @@ const AboutUs = () => {
       icon: BookOpen,
       title: "Excelencia Académica",
       description:
-        "Programas educativos de alta calidad que preparan para los desafíos del futuro",
+        "Programas educativos de calidad que preparan para los desafíos del futuro",
     },
     {
       icon: Users,

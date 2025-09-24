@@ -90,7 +90,7 @@ const EducationalLevels = () => {
           <div className="w-24 h-1 bg-school-yellow mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Ofrecemos una educación integral desde salas de 4 y 5 años hasta
-            sexto año del secundario, acompañando el crecimiento de nuestros
+            quinto año del secundario, acompañando el crecimiento de nuestros
             estudiantes en cada etapa de su desarrollo.
           </p>
         </div>
