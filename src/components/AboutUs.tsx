@@ -37,9 +37,9 @@ const AboutUs = () => {
           </h2>
           <div className="w-24 h-1 bg-school-yellow mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            El Instituto Bautista del Centro ha sido un faro de educación
-            cristiana en Argentina, formando generaciones de estudiantes con
-            excelencia académica y valores sólidos.
+            El Instituto Bautista del Centro ha sido pionero en la educación
+            evangélica en Eldorado, formando estudiantes con excelencia
+            académica y principios sólidos.
           </p>
         </div>
 
