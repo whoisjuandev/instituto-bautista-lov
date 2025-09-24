@@ -1,27 +1,26 @@
-
-import { Quote, Star } from 'lucide-react';
+import { Quote, Star } from "lucide-react"
 
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "María González",
-      role: "Madre de alumna de 5° grado",
-      content: "El Instituto Bautista del Centro no solo brinda excelencia académica, sino que forma el corazón de nuestros hijos. Mi hija ha crecido en valores y confianza desde que estudia aquí.",
-      rating: 5
+      role: "Mamá de 3° grado",
+      content:
+        "Mi experiencia siendo mamá desde el inicio en el ibc es totalmente linda ya que nos permiten ser parte de la institución de una u otra manera acompañado a nuestros hijos, ese vínculo de escuela familiar es súper importante y lo que me llevo a elegirlos fue la calidad educativa, infraestructura, el ambiente, la reputación y la educación a las necesidades individuales de cada estudiante.",
+      rating: 5,
     },
     {
-      name: "Dr. Carlos Mendoza",
-      role: "Padre de graduado 2023",
-      content: "Mi hijo egresó el año pasado y hoy estudia Ingeniería. La base sólida que recibió en el instituto, tanto académica como espiritual, fue fundamental para su éxito universitario.",
-      rating: 5
+      role: "Mamá de 4° grado y Nivel Inicial",
+      content:
+        "Como familia elegimos el Instituto Bautista del Centro para nuestros hijos por varios motivos: Su orientación cristiana, lo más importante para nosotros. La contención que reciben los alumnos tanto de la dirección, los docentes y el EDAyO. La cercanía a nuestro hogar, que también influye. Cuando nuestra hija mayor comenzó la escuela nunca pensamos en otra opción. Desde antes del Nivel Inicial sabíamos que sería aquí, con la certeza de que Dios estaba en medio 🩷",
+      rating: 5,
     },
     {
-      name: "Ana Rodríguez",
-      role: "Ex alumna, promoción 2015",
-      content: "Los valores que aprendí en la EBC siguen guiando mi vida profesional y personal. Es increíble como los maestros logran combinar excelencia académica con formación en valores.",
-      rating: 5
-    }
-  ];
+      role: "Mamá de 7° grado",
+      content:
+        "Me siento muy afortunada de haber elegido el Instituto Bautista del Centro para la educación de mi hija. La escuela se destaca por su enfoque a la educación cristiana. Esto ha permitido que mi hija crezca y se desarrole de manera integral, no solo académicamente sino también en sus habilidades sociales y emocionales. La directora y los docentes del establecimiento escolar han demostrado un compromiso genuino con la educación y el bienestar de los estudiantes, lo que ha sido fundamental para que mi hija se sienta cómoda y segura en el entorno escolar. Es por ello que también elegimos para que continúe sus estudios secundarios en esta institución. Estoy muy satisfecha con la elección del Instituto Bautista, recomiendo esta escuela a cualquier padre o madre que busque una educación excelente para sus hijos.",
+      rating: 5,
+    },
+  ]
 
   return (
     <section className="section-padding bg-white">
@@ -32,14 +31,15 @@ const Testimonials = () => {
           </h2>
           <div className="w-24 h-1 bg-school-yellow mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Las experiencias de nuestra comunidad educativa reflejan el impacto transformador 
-            de la educación que brindamos en el Instituto Bautista del Centro.
+            Las experiencias de nuestra comunidad educativa reflejan el impacto
+            transformador de la educación que brindamos en el Instituto Bautista
+            del Centro.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <div 
+            <div
               key={index}
               className="bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-lg transition-all duration-300 relative animate-scale-in"
               style={{ animationDelay: `${index * 0.2}s` }}
@@ -52,7 +52,11 @@ const Testimonials = () => {
               {/* Rating */}
               <div className="flex mb-4 pt-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="text-school-yellow fill-current" size={16} />
+                  <Star
+                    key={i}
+                    className="text-school-yellow fill-current"
+                    size={16}
+                  />
                 ))}
               </div>
 
@@ -63,8 +67,9 @@ const Testimonials = () => {
 
               {/* Author */}
               <div className="border-t border-gray-200 pt-4">
-                <h4 className="font-semibold text-school-blue">{testimonial.name}</h4>
-                <p className="text-sm text-gray-600">{testimonial.role}</p>
+                <h4 className="font-semibold text-school-blue">
+                  {testimonial.role}
+                </h4>
               </div>
             </div>
           ))}
@@ -75,8 +80,12 @@ const Testimonials = () => {
           <p className="text-gray-700 mb-6">
             ¿Te gustaría ser parte de estas historias de éxito?
           </p>
-          <button 
-            onClick={() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })}
+          <button
+            onClick={() =>
+              document
+                .querySelector("#contacto")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             className="btn-primary"
           >
             Conocé más sobre nosotros
@@ -84,7 +93,7 @@ const Testimonials = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Testimonials;
+export default Testimonials
