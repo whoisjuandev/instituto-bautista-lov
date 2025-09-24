@@ -81,7 +81,7 @@ const EducationalLevels = () => {
   ]
 
   return (
-    <section id="niveles" className="section-padding bg-gray-50">
+    <section id="niveles" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-school-blue mb-6">
@@ -99,15 +99,15 @@ const EducationalLevels = () => {
           {levels.map((level, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col animate-scale-in"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              {/* Header with gradient */}
+              {/* Header with gradient - Fixed height */}
               <div
-                className={`bg-gradient-to-r ${level.gradient} p-8 text-white relative overflow-hidden`}
+                className={`bg-gradient-to-r ${level.gradient} p-8 text-white relative overflow-hidden h-48 flex flex-col justify-center`}
               >
                 <div className="relative z-10">
-                  <level.icon size={48} className="mb-4" />
+                  <level.icon size={32} className="mb-4" />
                   <h3 className="text-2xl md:text-3xl font-playfair font-bold mb-2">
                     {level.title}
                   </h3>
@@ -117,27 +117,27 @@ const EducationalLevels = () => {
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full"></div>
               </div>
 
-              {/* Content */}
-              <div className="p-8">
+              {/* Content - Flexible height with proper spacing */}
+              <div className="p-8 flex-1 flex flex-col">
                 <p className="text-gray-700 leading-relaxed mb-6">
                   {level.description}
                 </p>
 
-                {/* Features list */}
-                <div className="space-y-3">
+                {/* Features list - Takes available space */}
+                <div className="space-y-3 flex-1">
                   <h4 className="font-semibold text-school-blue mb-4 flex items-center">
                     <BookOpen size={20} className="mr-2" />
                     Características destacadas:
                   </h4>
                   {level.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center">
-                      <div className="w-2 h-2 bg-school-yellow rounded-full mr-3"></div>
+                      <div className="w-2 h-2 bg-school-yellow rounded-full mr-3 flex-shrink-0"></div>
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA Button - Always at bottom */}
                 <div className="mt-8">
                   <button
                     onClick={() =>
@@ -191,24 +191,6 @@ const EducationalLevels = () => {
             </AlertDialogContent>
           </AlertDialog>
         </div>
-
-        {/* Stats section */}
-        {/* <div className="mt-16 bg-school-blue rounded-2xl p-8 md:p-12">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              <div className="text-4xl md:text-5xl font-bold text-school-yellow mb-2">400+</div>
-              <p className="text-white">Estudiantes activos</p>
-            </div>
-            <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="text-4xl md:text-5xl font-bold text-school-yellow mb-2">95%</div>
-              <p className="text-white">Ingreso universitario</p>
-            </div>
-            <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="text-4xl md:text-5xl font-bold text-school-yellow mb-2">30+</div>
-              <p className="text-white">Años de trayectoria</p>
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   )
