@@ -37,10 +37,9 @@ const AboutUs = () => {
           </h2>
           <div className="w-24 h-1 bg-school-yellow mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Desde hace más de tres décadas, el Instituto Bautista del Centro ha
-            sido un faro de educación cristiana en Argentina, formando
-            generaciones de estudiantes con excelencia académica y valores
-            sólidos.
+            El Instituto Bautista del Centro ha sido un faro de educación
+            cristiana en Argentina, formando generaciones de estudiantes con
+            excelencia académica y valores sólidos.
           </p>
         </div>
 
@@ -62,15 +61,6 @@ const AboutUs = () => {
               emocional y espiritual, preparándolos para ser líderes del mañana
               con corazón de servicio.
             </p>
-            {/* <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-school-yellow rounded-full flex items-center justify-center">
-                <Heart className="text-school-blue" size={24} />
-              </div>
-              <div>
-                <h4 className="font-semibold text-school-blue">Más de 30 años</h4>
-                <p className="text-gray-600">formando líderes íntegros</p>
-              </div>
-            </div> */}
           </div>
 
           {/* Image placeholder */}
