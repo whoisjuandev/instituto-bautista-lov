@@ -1,48 +1,52 @@
-
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react"
+import { Menu, X } from "lucide-react"
 
 const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+      setIsScrolled(window.scrollY > 50)
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const navItems = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Quiénes Somos', href: '#nosotros' },
-    { name: 'Niveles', href: '#niveles' },
-    { name: 'Vida Escolar', href: '#vida-escolar' },
-    { name: 'Valores', href: '#valores' },
-    { name: 'Contacto', href: '#contacto' }
-  ];
+    { name: "Inicio", href: "#inicio" },
+    { name: "Quiénes Somos", href: "#nosotros" },
+    { name: "Niveles", href: "#niveles" },
+    { name: "Vida Escolar", href: "#vida-escolar" },
+    { name: "Recursos para Familias", href: "#recursos-familias" },
+    { name: "Valores", href: "#valores" },
+    { name: "Contacto", href: "#contacto" },
+  ]
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
+    const element = document.querySelector(href)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" })
     }
-    setIsMobileMenuOpen(false);
-  };
+    setIsMobileMenuOpen(false)
+  }
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-school-blue/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-school-blue/85 backdrop-blur-sm shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img 
-              src="/lovable-uploads/e16c7cad-afda-4a8e-938b-35f606dac360.png" 
-              alt="Instituto Bautista del Centro Logo" 
+            <img
+              src="/images/logo-instituto-blanco.svg"
+              alt="Instituto Bautista del Centro Logo"
               className="w-10 h-10 md:w-12 md:h-12 object-contain"
             />
             <div className="hidden md:block">
@@ -63,8 +67,8 @@ const Navigation = () => {
                 {item.name}
               </button>
             ))}
-            <button 
-              onClick={() => scrollToSection('#contacto')}
+            <button
+              onClick={() => scrollToSection("#contacto")}
               className="btn-primary text-sm"
             >
               Agendá tu visita
@@ -94,8 +98,8 @@ const Navigation = () => {
                 </button>
               ))}
               <div className="px-4 pt-2">
-                <button 
-                  onClick={() => scrollToSection('#contacto')}
+                <button
+                  onClick={() => scrollToSection("#contacto")}
                   className="btn-primary w-full text-sm"
                 >
                   Agendá tu visita
@@ -106,7 +110,7 @@ const Navigation = () => {
         )}
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation
