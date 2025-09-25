@@ -65,13 +65,13 @@ const AboutUs = () => {
 
           {/* Image placeholder */}
           <div className="relative animate-scale-in">
-            <div className="aspect-[4/3] bg-gradient-to-br from-school-blue/10 to-school-yellow/20 rounded-2xl flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <Users size={80} className="mx-auto mb-4 opacity-30" />
-                <p className="text-lg font-medium">
-                  Foto de la comunidad educativa
-                </p>
-                <p className="text-sm">(Imagen a reemplazar)</p>
+            <div className="aspect-[4/3] bg-gradient-to-br from-school-blue/10 to-school-yellow/20 rounded-2xl overflow-hidden flex items-center justify-center">
+              <div className="absolute inset-0 rounded-2xl overflow-hidden hero-gradient">
+                <img
+                  src="/images/estudiantes.webp"
+                  alt="Background"
+                  className="w-full h-full object-cover opacity-90"
+                />
               </div>
             </div>
             {/* Decorative elements */}
