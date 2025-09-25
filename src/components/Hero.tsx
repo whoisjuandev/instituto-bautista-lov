@@ -86,7 +86,7 @@ const Hero = () => {
         {/* Scroll indicator */}
         <button
           onClick={scrollToNextSection}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 hover:text-school-yellow transition-colors duration-300 animate-bounce"
+          className="bottom-12 left-1/2 transform -translate-x-1/2 text-white/70 hover:text-school-yellow transition-colors duration-300 animate-bounce"
         >
           <ChevronDown size={32} />
         </button>
