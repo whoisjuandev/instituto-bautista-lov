@@ -68,7 +68,7 @@ const AboutUs = () => {
             <div className="aspect-[4/3] bg-gradient-to-br from-school-blue/10 to-school-yellow/20 rounded-2xl overflow-hidden flex items-center justify-center">
               <div className="absolute inset-0 rounded-2xl overflow-hidden hero-gradient">
                 <img
-                  src="/images/estudiantes.webp"
+                  src="/images/estudiantes-1.webp"
                   alt="Background"
                   className="w-full h-full object-cover opacity-90"
                 />
