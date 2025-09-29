@@ -68,10 +68,10 @@ const Navigation = () => {
               </button>
             ))}
             <button
-              onClick={() => scrollToSection("#contacto")}
+              onClick={() => scrollToSection("#preinscripciones")}
               className="btn-primary text-sm"
             >
-              Agendá tu visita
+              Preinscripciones 2026
             </button>
           </div>
 
