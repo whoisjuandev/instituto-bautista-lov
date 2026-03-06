@@ -1,11 +1,5 @@
 import React, { useState, memo, useCallback } from "react"
-import {
-  FileText,
-  Shirt,
-  School,
-  Download,
-  AlertCircle,
-} from "lucide-react"
+import { FileText, Shirt, School, Download, AlertCircle } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -59,27 +53,105 @@ const uniformesByLevel = [
 ]
 
 const forms = [
-  { name: "Autorización para Salida Individual", icon: FileText, downloadUrl: "/pdfs/family-resources/formularios/autorizacion-salida-individual.pdf", available: true },
-  { name: "Autorización para Salida Acompañada", icon: FileText, downloadUrl: "/pdfs/family-resources/formularios/autorizacion-salida-acompanada.pdf", available: true },
-  { name: "Ficha Médica Obligatoria", icon: FileText, downloadUrl: "/pdfs/family-resources/formularios/ficha-medica-obligatoria.pdf", available: true },
+  {
+    name: "Autorización para Salida Individual",
+    icon: FileText,
+    downloadUrl:
+      "/pdfs/family-resources/formularios/autorizacion-salida-individual.pdf",
+    available: true,
+  },
+  {
+    name: "Autorización para Salida Acompañada",
+    icon: FileText,
+    downloadUrl:
+      "/pdfs/family-resources/formularios/autorizacion-salida-acompanada.pdf",
+    available: true,
+  },
+  {
+    name: "Ficha Médica Obligatoria",
+    icon: FileText,
+    downloadUrl:
+      "/pdfs/family-resources/formularios/ficha-medica-obligatoria.pdf",
+    available: true,
+  },
 ]
 
 const materialesPrimario = [
-  { grade: "1°", name: "1° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-primer-grado.pdf", available: true },
-  { grade: "2°", name: "2° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-segundo-grado.pdf", available: true },
-  { grade: "3°", name: "3° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-tercer-grado.pdf", available: true },
-  { grade: "4°", name: "4° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-cuarto-grado.pdf", available: true },
-  { grade: "5°", name: "5° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-quinto-grado.pdf", available: true },
-  { grade: "6°", name: "6° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-sexto-grado.pdf", available: true },
-  { grade: "7°", name: "7° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-septimo-grado.pdf", available: true },
+  {
+    grade: "1°",
+    name: "1° Grado",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-primario/materiales-primer-grado.pdf",
+    available: true,
+  },
+  {
+    grade: "2°",
+    name: "2° Grado",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-primario/materiales-segundo-grado.pdf",
+    available: true,
+  },
+  {
+    grade: "3°",
+    name: "3° Grado",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-primario/materiales-tercer-grado.pdf",
+    available: true,
+  },
+  {
+    grade: "4°",
+    name: "4° Grado",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-primario/materiales-cuarto-grado.pdf",
+    available: true,
+  },
+  {
+    grade: "5°",
+    name: "5° Grado",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-primario/materiales-quinto-grado.pdf",
+    available: true,
+  },
+  {
+    grade: "6°",
+    name: "6° Grado",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-primario/materiales-sexto-grado.pdf",
+    available: true,
+  },
+  {
+    grade: "7°",
+    name: "7° Grado",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-primario/materiales-septimo-grado.pdf",
+    available: true,
+  },
 ]
 
 const materialesSecundario = [
-  { grade: "1°", name: "1° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-primer-anio.pdf", available: true },
-  { grade: "2°", name: "2° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-segundo-anio.pdf", available: true },
-  { grade: "3°", name: "3° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-tercer-anio.pdf", available: true },
-  { grade: "4°", name: "4° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-cuarto-anio.pdf", available: true },
-  { grade: "5°", name: "5° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-quinto-anio.pdf", available: true },
+  {
+    grade: "1°",
+    name: "1° Año",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-secundario/materiales-primer-anio.pdf",
+    available: true,
+  },
+  {
+    grade: "2°",
+    name: "2° Año",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-secundario/materiales-segundo-anio.pdf",
+    available: true,
+  },
+  {
+    grade: "3°",
+    name: "3° Año",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-secundario/materiales-tercer-anio.pdf",
+    available: true,
+  },
+  // { grade: "4°", name: "4° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-cuarto-anio.pdf", available: true },
+  // { grade: "5°", name: "5° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-quinto-anio.pdf", available: true },
 ]
 
 const handleDownload = (url: string, _fileName: string, available: boolean) => {
@@ -92,20 +164,35 @@ const handleDownload = (url: string, _fileName: string, available: boolean) => {
 
 // ── Reusable card (no state) ──
 
-const ResourceCard = memo(({ resource, index }: { resource: { id: string; title: string; icon: React.ElementType; description: string }; index: number }) => (
-  <div
-    className="bg-white border border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:shadow-lg hover:border-school-yellow/50 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in h-full flex flex-col justify-between"
-    style={{ animationDelay: `${index * 0.1}s` }}
-  >
-    <div>
-      <div className="w-16 h-16 bg-school-yellow rounded-full flex items-center justify-center mb-6 mx-auto">
-        <resource.icon className="text-school-blue" size={28} />
+const ResourceCard = memo(
+  ({
+    resource,
+    index,
+  }: {
+    resource: {
+      id: string
+      title: string
+      icon: React.ElementType
+      description: string
+    }
+    index: number
+  }) => (
+    <div
+      className="bg-white border border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:shadow-lg hover:border-school-yellow/50 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in h-full flex flex-col justify-between"
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      <div>
+        <div className="w-16 h-16 bg-school-yellow rounded-full flex items-center justify-center mb-6 mx-auto">
+          <resource.icon className="text-school-blue" size={28} />
+        </div>
+        <h3 className="text-2xl font-semibold text-school-blue mb-4">
+          {resource.title}
+        </h3>
+        <p className="text-gray-600 leading-relaxed">{resource.description}</p>
       </div>
-      <h3 className="text-2xl font-semibold text-school-blue mb-4">{resource.title}</h3>
-      <p className="text-gray-600 leading-relaxed">{resource.description}</p>
     </div>
-  </div>
-))
+  )
+)
 ResourceCard.displayName = "ResourceCard"
 
 // ── Uniformes Modal (self-contained) ──
@@ -114,21 +201,40 @@ const UniformesModal = memo(({ index }: { index: number }) => (
   <Dialog>
     <DialogTrigger asChild>
       <div>
-        <ResourceCard resource={{ id: "uniformes", title: "Uniformes", icon: Shirt, description: "Información sobre uniformes por nivel educativo" }} index={index} />
+        <ResourceCard
+          resource={{
+            id: "uniformes",
+            title: "Uniformes",
+            icon: Shirt,
+            description: "Información sobre uniformes por nivel educativo",
+          }}
+          index={index}
+        />
       </div>
     </DialogTrigger>
     <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
       <DialogHeader>
-        <DialogTitle className="text-2xl text-school-blue">Uniformes del Instituto</DialogTitle>
-        <DialogDescription>Información detallada sobre los uniformes para cada nivel educativo.</DialogDescription>
+        <DialogTitle className="text-2xl text-school-blue">
+          Uniformes del Instituto
+        </DialogTitle>
+        <DialogDescription>
+          Información detallada sobre los uniformes para cada nivel educativo.
+        </DialogDescription>
       </DialogHeader>
       <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
         {uniformesByLevel.map((nivel, idx) => (
           <div key={`nivel-${idx}`} className="bg-gray-50 rounded-lg p-6">
-            <h4 className="text-lg font-semibold text-school-blue mb-4">{nivel.level}</h4>
+            <h4 className="text-lg font-semibold text-school-blue mb-4">
+              {nivel.level}
+            </h4>
             <ul className="space-y-2" role="list">
               {nivel.items.map((item, itemIdx) => (
-                <li key={`item-${idx}-${itemIdx}`} className="text-sm text-gray-700 leading-relaxed">• {item}</li>
+                <li
+                  key={`item-${idx}-${itemIdx}`}
+                  className="text-sm text-gray-700 leading-relaxed"
+                >
+                  • {item}
+                </li>
               ))}
             </ul>
           </div>
@@ -136,7 +242,8 @@ const UniformesModal = memo(({ index }: { index: number }) => (
       </div>
       <div className="mt-6 p-4 bg-school-yellow/10 rounded-lg">
         <p className="text-school-blue font-semibold text-center">
-          <strong>Nota importante:</strong> Todos los uniformes deben llevar el LOGO del Instituto.
+          <strong>Nota importante:</strong> Todos los uniformes deben llevar el
+          LOGO del Instituto.
         </p>
       </div>
     </DialogContent>
@@ -150,18 +257,32 @@ const FormulariosModal = memo(({ index }: { index: number }) => (
   <Dialog>
     <DialogTrigger asChild>
       <div>
-        <ResourceCard resource={{ id: "formularios", title: "Formularios", icon: FileText, description: "Descargas de documentación importante" }} index={index} />
+        <ResourceCard
+          resource={{
+            id: "formularios",
+            title: "Formularios",
+            icon: FileText,
+            description: "Descargas de documentación importante",
+          }}
+          index={index}
+        />
       </div>
     </DialogTrigger>
     <DialogContent className="max-w-2xl">
       <DialogHeader>
-        <DialogTitle className="text-2xl text-school-blue">Formularios para Descarga</DialogTitle>
-        <DialogDescription>Descargá los formularios necesarios para el año lectivo.</DialogDescription>
+        <DialogTitle className="text-2xl text-school-blue">
+          Formularios para Descarga
+        </DialogTitle>
+        <DialogDescription>
+          Descargá los formularios necesarios para el año lectivo.
+        </DialogDescription>
       </DialogHeader>
       {forms.some((form) => !form.available) && (
         <Alert className="mt-4">
           <AlertCircle className="h-4 w-4" />
-          <AlertDescription>Algunos documentos estarán disponibles próximamente.</AlertDescription>
+          <AlertDescription>
+            Algunos documentos estarán disponibles próximamente.
+          </AlertDescription>
         </Alert>
       )}
       <div className="grid gap-4 mt-6">
@@ -169,14 +290,22 @@ const FormulariosModal = memo(({ index }: { index: number }) => (
           <Button
             key={`form-${idx}`}
             variant="outline"
-            className={`h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow ${!form.available ? "opacity-60 cursor-not-allowed" : ""}`}
-            onClick={() => handleDownload(form.downloadUrl, form.name, form.available)}
+            className={`h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow ${
+              !form.available ? "opacity-60 cursor-not-allowed" : ""
+            }`}
+            onClick={() =>
+              handleDownload(form.downloadUrl, form.name, form.available)
+            }
             disabled={!form.available}
           >
             <form.icon className="text-school-blue mr-3" size={20} />
             <span className="text-school-blue font-medium flex-1 text-left">
               {form.name}
-              {!form.available && <span className="text-xs text-gray-500 block">(Próximamente)</span>}
+              {!form.available && (
+                <span className="text-xs text-gray-500 block">
+                  (Próximamente)
+                </span>
+              )}
             </span>
             <Download className="text-school-blue ml-auto" size={16} />
           </Button>
@@ -191,35 +320,58 @@ FormulariosModal.displayName = "FormulariosModal"
 
 const MaterialesModal = ({ index }: { index: number }) => {
   const [open, setOpen] = useState(false)
-  const [view, setView] = useState<"selector" | "primario" | "secundario">("selector")
+  const [view, setView] = useState<"selector" | "primario" | "secundario">(
+    "selector"
+  )
 
   const onOpenChange = useCallback((isOpen: boolean) => {
     setOpen(isOpen)
     if (!isOpen) setView("selector")
   }, [])
 
-  const materiales = view === "primario" ? materialesPrimario : materialesSecundario
+  const materiales =
+    view === "primario" ? materialesPrimario : materialesSecundario
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
         <div>
-          <ResourceCard resource={{ id: "materiales", title: "Lista de Materiales 2026", icon: School, description: "Lista completa para cada nivel" }} index={index} />
+          <ResourceCard
+            resource={{
+              id: "materiales",
+              title: "Lista de Materiales 2026",
+              icon: School,
+              description: "Lista completa para cada nivel",
+            }}
+            index={index}
+          />
         </div>
       </DialogTrigger>
       <DialogContent className="max-w-3xl">
         {view === "selector" && (
           <>
             <DialogHeader>
-              <DialogTitle className="text-2xl text-school-blue">Lista de Materiales 2026</DialogTitle>
-              <DialogDescription>Seleccioná el nivel educativo para ver las listas de materiales.</DialogDescription>
+              <DialogTitle className="text-2xl text-school-blue">
+                Lista de Materiales 2026
+              </DialogTitle>
+              <DialogDescription>
+                Seleccioná el nivel educativo para ver las listas de materiales.
+              </DialogDescription>
             </DialogHeader>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-              <Button variant="outline" className="h-24 text-lg font-semibold border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow text-school-blue" onClick={() => setView("primario")}>
+              <Button
+                variant="outline"
+                className="h-24 text-lg font-semibold border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow text-school-blue"
+                onClick={() => setView("primario")}
+              >
                 <School className="mr-3" size={28} />
                 Nivel Primario
               </Button>
-              <Button variant="outline" className="h-24 text-lg font-semibold border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow text-school-blue" onClick={() => setView("secundario")}>
+              <Button
+                variant="outline"
+                className="h-24 text-lg font-semibold border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow text-school-blue"
+                onClick={() => setView("secundario")}
+              >
                 <School className="mr-3" size={28} />
                 Nivel Secundario
               </Button>
@@ -231,13 +383,19 @@ const MaterialesModal = ({ index }: { index: number }) => {
           <>
             <DialogHeader>
               <DialogTitle className="text-2xl text-school-blue">
-                Lista de Materiales 2026 - {view === "primario" ? "Nivel Primario" : "Nivel Secundario"}
+                Lista de Materiales 2026 -{" "}
+                {view === "primario" ? "Nivel Primario" : "Nivel Secundario"}
               </DialogTitle>
               <DialogDescription>
-                Seleccioná el {view === "primario" ? "grado" : "año"} para descargar la lista de materiales correspondiente.
+                Seleccioná el {view === "primario" ? "grado" : "año"} para
+                descargar la lista de materiales correspondiente.
               </DialogDescription>
             </DialogHeader>
-            <Button variant="ghost" className="w-fit text-school-blue hover:bg-school-yellow/10 -mt-2" onClick={() => setView("selector")}>
+            <Button
+              variant="ghost"
+              className="w-fit text-school-blue hover:bg-school-yellow/10 -mt-2"
+              onClick={() => setView("selector")}
+            >
               ← Volver
             </Button>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -245,12 +403,22 @@ const MaterialesModal = ({ index }: { index: number }) => {
                 <Button
                   key={`material-${view}-${idx}`}
                   variant="outline"
-                  className={`h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow ${!material.available ? "opacity-60 cursor-not-allowed" : ""}`}
-                  onClick={() => handleDownload(material.downloadUrl, material.name, material.available)}
+                  className={`h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow ${
+                    !material.available ? "opacity-60 cursor-not-allowed" : ""
+                  }`}
+                  onClick={() =>
+                    handleDownload(
+                      material.downloadUrl,
+                      material.name,
+                      material.available
+                    )
+                  }
                   disabled={!material.available}
                 >
                   <FileText className="text-school-blue mr-3" size={20} />
-                  <span className="text-school-blue font-medium flex-1 text-left">{material.name}</span>
+                  <span className="text-school-blue font-medium flex-1 text-left">
+                    {material.name}
+                  </span>
                   <Download className="text-school-blue ml-auto" size={16} />
                 </Button>
               ))}
@@ -266,7 +434,9 @@ const MaterialesModal = ({ index }: { index: number }) => {
 
 const FamilyResources = () => {
   const scrollToContact = useCallback(() => {
-    document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth", block: "start" })
+    document
+      .querySelector("#contacto")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" })
   }, [])
 
   return (
@@ -278,7 +448,8 @@ const FamilyResources = () => {
           </h2>
           <div className="w-24 h-1 bg-school-yellow mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Accedé rápidamente a la información que necesitás para el ciclo lectivo.
+            Accedé rápidamente a la información que necesitás para el ciclo
+            lectivo.
           </p>
         </div>
 
@@ -289,8 +460,12 @@ const FamilyResources = () => {
         </div>
 
         <div className="text-center mt-16 p-6 bg-gray-50 rounded-xl max-w-4xl mx-auto">
-          <p className="text-gray-700 mb-4">¿Necesitás más información o tenés dudas sobre estos recursos?</p>
-          <Button onClick={scrollToContact} className="btn-primary">Contactanos</Button>
+          <p className="text-gray-700 mb-4">
+            ¿Necesitás más información o tenés dudas sobre estos recursos?
+          </p>
+          <Button onClick={scrollToContact} className="btn-primary">
+            Contactanos
+          </Button>
         </div>
       </div>
     </section>
