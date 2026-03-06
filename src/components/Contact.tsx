@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react"
 
 const Contact = () => {
   const contactInfo = [
@@ -7,33 +7,39 @@ const Contact = () => {
       title: "Dirección de Administración",
       content: "La Rioja 1402",
       action: "Ver en Maps",
-      href: "https://www.google.com/maps/search/?api=1&query=La+Rioja+1402"
+      href: "https://www.google.com/maps/search/?api=1&query=La+Rioja+1402",
     },
     {
       icon: Phone,
       title: "Teléfono",
       phones: [
         { label: "Administración", number: "+54 03751 424930" },
-        { label: "Nivel Inicial", number: "+54 03751 426784" }
-      ]
+        { label: "Nivel Inicial", number: "+54 03751 426784" },
+      ],
     },
     {
       icon: Mail,
       title: "Email",
       emails: [
-        { label: "administracion@ibceldorado.com.ar", email: "administracion@ibceldorado.com.ar" },
-        { label: "direcccion@ibceldorado.com.ar", email: "direcccion@ibceldorado.com.ar" }
-      ]
+        {
+          label: "instbautistadelcentro@gmail.com",
+          email: "instbautistadelcentro@gmail.com",
+        },
+        {
+          label: "secretaria.ibc0612@gmail.com",
+          email: "secretaria.ibc0612@gmail.com",
+        },
+      ],
     },
     {
       icon: Clock,
       title: "Horarios de atención",
       schedules: [
-        { label: "Administración", hours: "Lun a Vie: 7–12 y 13:30–18:30" },
-        { label: "Nivel Inicial", hours: "8–11 am" }
-      ]
-    }
-  ];
+        { label: "Administración", hours: "Lun a Vie: 7-12 y 13:30-18:30" },
+        { label: "Nivel Inicial", hours: "8-11 am" },
+      ],
+    },
+  ]
 
   return (
     <section id="contacto" className="section-padding bg-school-blue">
@@ -44,7 +50,8 @@ const Contact = () => {
           </h2>
           <div className="w-24 h-1 bg-school-yellow mx-auto mb-8"></div>
           <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-light">
-            Coordiná una visita de forma rápida y sencilla. Nuestro equipo está listo para responderte.
+            Coordiná una visita de forma rápida y sencilla. Nuestro equipo está
+            listo para responderte.
           </p>
         </div>
 
@@ -54,10 +61,10 @@ const Contact = () => {
             <h3 className="text-2xl md:text-3xl font-playfair font-bold text-white mb-8 text-center">
               Información de Contacto
             </h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {contactInfo.map((info, index) => (
-                <div 
+                <div
                   key={index}
                   className="flex items-start space-x-4 p-6 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-white/15 transition-all duration-300 shadow-lg"
                 >
@@ -65,14 +72,18 @@ const Contact = () => {
                     <info.icon className="text-school-blue" size={20} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-white mb-3 text-base">{info.title}</h4>
-                    
+                    <h4 className="font-semibold text-white mb-3 text-base">
+                      {info.title}
+                    </h4>
+
                     {/* Address */}
                     {info.content && (
                       <>
-                        <p className="text-white/80 mb-2 text-base break-words">{info.content}</p>
+                        <p className="text-white/80 mb-2 text-base break-words">
+                          {info.content}
+                        </p>
                         {info.action && info.href && (
-                          <a 
+                          <a
                             href={info.href}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -89,8 +100,10 @@ const Contact = () => {
                       <div className="space-y-2">
                         {info.phones.map((phone, phoneIndex) => (
                           <div key={phoneIndex}>
-                            <p className="text-white/60 text-sm">{phone.label}:</p>
-                            <a 
+                            <p className="text-white/60 text-sm">
+                              {phone.label}:
+                            </p>
+                            <a
                               href={`tel:${phone.number}`}
                               className="text-white/80 hover:text-school-yellow text-base transition-colors"
                             >
@@ -106,7 +119,7 @@ const Contact = () => {
                       <div className="space-y-2">
                         {info.emails.map((email, emailIndex) => (
                           <div key={emailIndex}>
-                            <a 
+                            <a
                               href={`mailto:${email.email}`}
                               className="text-white/80 hover:text-school-yellow text-base transition-colors break-words"
                             >
@@ -122,8 +135,12 @@ const Contact = () => {
                       <div className="space-y-2">
                         {info.schedules.map((schedule, scheduleIndex) => (
                           <div key={scheduleIndex}>
-                            <p className="text-white/60 text-sm">{schedule.label}:</p>
-                            <p className="text-white/80 text-base">{schedule.hours}</p>
+                            <p className="text-white/60 text-sm">
+                              {schedule.label}:
+                            </p>
+                            <p className="text-white/80 text-base">
+                              {schedule.hours}
+                            </p>
                           </div>
                         ))}
                       </div>
@@ -138,9 +155,13 @@ const Contact = () => {
           <div className="max-w-md mx-auto">
             <div className="bg-green-500 rounded-lg p-6 text-center animate-scale-in shadow-xl">
               <MessageCircle className="text-white mx-auto mb-4" size={32} />
-              <h4 className="text-white font-bold text-xl mb-2">¿Tenés consultas?</h4>
-              <p className="text-white/90 mb-6 text-base">Escribinos por WhatsApp para una respuesta inmediata</p>
-              <a 
+              <h4 className="text-white font-bold text-xl mb-2">
+                ¿Tenés consultas?
+              </h4>
+              <p className="text-white/90 mb-6 text-base">
+                Escribinos por WhatsApp para una respuesta inmediata
+              </p>
+              <a
                 href="https://wa.me/543751502744"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -153,7 +174,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
