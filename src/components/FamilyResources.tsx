@@ -107,56 +107,22 @@ const FamilyResources = () => {
     },
   ]
 
-  const materialesGrades = [
-    {
-      grade: "1°",
-      name: "1° Grado",
-      downloadUrl:
-        "/pdfs/family-resources/nivel-primario/materiales-primer-grado.pdf",
-      available: true,
-    },
-    {
-      grade: "2°",
-      name: "2° Grado",
-      downloadUrl:
-        "/pdfs/family-resources/nivel-primario/materiales-segundo-grado.pdf",
-      available: true,
-    },
-    {
-      grade: "3°",
-      name: "3° Grado",
-      downloadUrl:
-        "/pdfs/family-resources/nivel-primario/materiales-tercer-grado.pdf",
-      available: true,
-    },
-    {
-      grade: "4°",
-      name: "4° Grado",
-      downloadUrl:
-        "/pdfs/family-resources/nivel-primario/materiales-cuarto-grado.pdf",
-      available: true,
-    },
-    {
-      grade: "5°",
-      name: "5° Grado",
-      downloadUrl:
-        "/pdfs/family-resources/nivel-primario/materiales-quinto-grado.pdf",
-      available: true,
-    },
-    {
-      grade: "6°",
-      name: "6° Grado",
-      downloadUrl:
-        "/pdfs/family-resources/nivel-primario/materiales-sexto-grado.pdf",
-      available: true,
-    },
-    {
-      grade: "7°",
-      name: "7° Grado",
-      downloadUrl:
-        "/pdfs/family-resources/nivel-primario/materiales-septimo-grado.pdf",
-      available: true,
-    },
+  const materialesPrimario = [
+    { grade: "1°", name: "1° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-primer-grado.pdf", available: true },
+    { grade: "2°", name: "2° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-segundo-grado.pdf", available: true },
+    { grade: "3°", name: "3° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-tercer-grado.pdf", available: true },
+    { grade: "4°", name: "4° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-cuarto-grado.pdf", available: true },
+    { grade: "5°", name: "5° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-quinto-grado.pdf", available: true },
+    { grade: "6°", name: "6° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-sexto-grado.pdf", available: true },
+    { grade: "7°", name: "7° Grado", downloadUrl: "/pdfs/family-resources/nivel-primario/materiales-septimo-grado.pdf", available: true },
+  ]
+
+  const materialesSecundario = [
+    { grade: "1°", name: "1° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-primer-anio.pdf", available: true },
+    { grade: "2°", name: "2° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-segundo-anio.pdf", available: true },
+    { grade: "3°", name: "3° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-tercer-anio.pdf", available: true },
+    { grade: "4°", name: "4° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-cuarto-anio.pdf", available: true },
+    { grade: "5°", name: "5° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-quinto-anio.pdf", available: true },
   ]
 
   // Función mejorada para manejar descargas
