@@ -20,6 +20,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 
 const FamilyResources = () => {
   const [openModal, setOpenModal] = useState(null)
+  const [materialesView, setMaterialesView] = useState<"selector" | "primario" | "secundario">("selector")
+  const [materialesOpen, setMaterialesOpen] = useState(false)
 
   const resources = [
     {
