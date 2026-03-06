@@ -306,74 +306,116 @@ const FamilyResources = () => {
 
               {/* Materiales Modal */}
               {resource.id === "materiales" && (
-                <Dialog>
+                <Dialog open={materialesOpen} onOpenChange={(open) => {
+                  setMaterialesOpen(open)
+                  if (!open) setMaterialesView("selector")
+                }}>
                   <DialogTrigger asChild>
                     <div>
                       <ResourceCard resource={resource} index={index} />
                     </div>
                   </DialogTrigger>
                   <DialogContent className="max-w-3xl">
-                    <DialogHeader>
-                      <DialogTitle className="text-2xl text-school-blue">
-                        Lista de Materiales 2026 - Nivel Primario
-                      </DialogTitle>
-                      <DialogDescription>
-                        Seleccioná el grado para descargar la lista de
-                        materiales correspondiente.
-                      </DialogDescription>
-                    </DialogHeader>
-
-                    {/* Alerta para documentos no disponibles */}
-                    {materialesGrades.some(
-                      (material) => !material.available
-                    ) && (
-                      <Alert className="mt-4">
-                        <AlertCircle className="h-4 w-4" />
-                        <AlertDescription>
-                          Algunas listas de materiales estarán disponibles
-                          próximamente.
-                        </AlertDescription>
-                      </Alert>
+                    {materialesView === "selector" && (
+                      <>
+                        <DialogHeader>
+                          <DialogTitle className="text-2xl text-school-blue">
+                            Lista de Materiales 2026
+                          </DialogTitle>
+                          <DialogDescription>
+                            Seleccioná el nivel educativo para ver las listas de materiales.
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                          <Button
+                            variant="outline"
+                            className="h-24 text-lg font-semibold border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow text-school-blue"
+                            onClick={() => setMaterialesView("primario")}
+                          >
+                            <School className="mr-3" size={28} />
+                            Nivel Primario
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="h-24 text-lg font-semibold border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow text-school-blue"
+                            onClick={() => setMaterialesView("secundario")}
+                          >
+                            <School className="mr-3" size={28} />
+                            Nivel Secundario
+                          </Button>
+                        </div>
+                      </>
                     )}
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-6">
-                      {materialesGrades.map((material, idx) => (
+                    {materialesView === "primario" && (
+                      <>
+                        <DialogHeader>
+                          <DialogTitle className="text-2xl text-school-blue">
+                            Lista de Materiales 2026 - Nivel Primario
+                          </DialogTitle>
+                          <DialogDescription>
+                            Seleccioná el grado para descargar la lista de materiales correspondiente.
+                          </DialogDescription>
+                        </DialogHeader>
                         <Button
-                          key={`material-${idx}`}
-                          variant="outline"
-                          className={`h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow ${
-                            !material.available
-                              ? "opacity-60 cursor-not-allowed"
-                              : ""
-                          }`}
-                          onClick={() =>
-                            handleDownload(
-                              material.downloadUrl,
-                              material.name,
-                              material.available
-                            )
-                          }
-                          disabled={!material.available}
+                          variant="ghost"
+                          className="w-fit text-school-blue hover:bg-school-yellow/10 -mt-2"
+                          onClick={() => setMaterialesView("selector")}
                         >
-                          <FileText
-                            className="text-school-blue mr-3"
-                            size={20}
-                          />
-                          <span className="text-school-blue font-medium flex-1 text-left">
-                            {material.name}
-                            {!material.available && (
-                              <span className="text-xs text-gray-500 block">
-                                (Próximamente)
-                              </span>
-                            )}
-                          </span>
-                          <Download
-                            className="text-school-blue ml-auto"
-                            size={16}
-                          />
+                          ← Volver
                         </Button>
-                      ))}
-                    </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                          {materialesPrimario.map((material, idx) => (
+                            <Button
+                              key={`material-p-${idx}`}
+                              variant="outline"
+                              className={`h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow ${!material.available ? "opacity-60 cursor-not-allowed" : ""}`}
+                              onClick={() => handleDownload(material.downloadUrl, material.name, material.available)}
+                              disabled={!material.available}
+                            >
+                              <FileText className="text-school-blue mr-3" size={20} />
+                              <span className="text-school-blue font-medium flex-1 text-left">{material.name}</span>
+                              <Download className="text-school-blue ml-auto" size={16} />
+                            </Button>
+                          ))}
+                        </div>
+                      </>
+                    )}
+
+                    {materialesView === "secundario" && (
+                      <>
+                        <DialogHeader>
+                          <DialogTitle className="text-2xl text-school-blue">
+                            Lista de Materiales 2026 - Nivel Secundario
+                          </DialogTitle>
+                          <DialogDescription>
+                            Seleccioná el año para descargar la lista de materiales correspondiente.
+                          </DialogDescription>
+                        </DialogHeader>
+                        <Button
+                          variant="ghost"
+                          className="w-fit text-school-blue hover:bg-school-yellow/10 -mt-2"
+                          onClick={() => setMaterialesView("selector")}
+                        >
+                          ← Volver
+                        </Button>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                          {materialesSecundario.map((material, idx) => (
+                            <Button
+                              key={`material-s-${idx}`}
+                              variant="outline"
+                              className={`h-16 justify-start border-school-yellow/50 hover:bg-school-yellow/10 hover:border-school-yellow ${!material.available ? "opacity-60 cursor-not-allowed" : ""}`}
+                              onClick={() => handleDownload(material.downloadUrl, material.name, material.available)}
+                              disabled={!material.available}
+                            >
+                              <FileText className="text-school-blue mr-3" size={20} />
+                              <span className="text-school-blue font-medium flex-1 text-left">{material.name}</span>
+                              <Download className="text-school-blue ml-auto" size={16} />
+                            </Button>
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </DialogContent>
                 </Dialog>
               )}
