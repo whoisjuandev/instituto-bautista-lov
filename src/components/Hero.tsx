@@ -45,14 +45,14 @@ const Hero = () => {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Educamos con valores para transformar el mundo
+            Educación para la vida con valores eternos
           </p>
 
           {/* Description */}
           <p className="text-lg text-white/80 mb-12 max-w-2xl mx-auto">
             Una educación integral que combina excelencia académica con
             formación en valores cristianos, preparando a nuestros estudiantes
-            para ser líderes íntegros del mañana.
+            para ser ciudadanos íntegros del mañana.
           </p>
 
           {/* CTA Buttons */}
@@ -78,7 +78,7 @@ const Hero = () => {
               }}
               className="btn-secondary text-lg"
             >
-              Preinscripciones 2026
+              Preinscripciones 2027
             </button>
           </div>
         </div>

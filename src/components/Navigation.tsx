@@ -71,7 +71,7 @@ const Navigation = () => {
               onClick={() => scrollToSection("#preinscripciones")}
               className="btn-primary text-sm"
             >
-              Preinscripciones 2026
+              Preinscripciones 2027
             </button>
           </div>
 

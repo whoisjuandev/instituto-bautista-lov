@@ -31,7 +31,7 @@ const uniformesByLevel = [
       "Remera de la escuela color anaranjada (los días de Ed. Física)",
       "Short pollera (mujeres)",
       "Pantalón de vestir azul marino (varones)",
-      "Pantalón azul marino (los días de Ed. Física)",
+      "Pantalón deportivo (los días de Ed. Física)",
       "Medias azul marino",
       "Zapatos o zapatillas negras",
       "Abrigos azules (todos con nombres y/o iniciales)",
@@ -41,10 +41,10 @@ const uniformesByLevel = [
     level: "Nivel Secundario",
     items: [
       "Chomba de la escuela color blanca",
-      "Remera de la escuela color blanca (los días de Ed. Física)",
+      "Remera de la escuela color azul (los días de Ed. Física)",
       "Pantalón de vestir color azul marino (mujeres)",
       "Pantalón de vestir color azul marino (varones)",
-      "Pantalón azul marino (los días de Ed. Física)",
+      "Pantalón deportivo (los días de Ed. Física)",
       "Medias azul marino",
       "Zapatos o zapatillas negras",
       "Abrigos azul marino",
@@ -339,7 +339,7 @@ const MaterialesModal = ({ index }: { index: number }) => {
           <ResourceCard
             resource={{
               id: "materiales",
-              title: "Lista de Materiales 2026",
+              title: "Lista de Materiales 2027",
               icon: School,
               description: "Lista completa para cada nivel",
             }}
@@ -352,7 +352,7 @@ const MaterialesModal = ({ index }: { index: number }) => {
           <>
             <DialogHeader>
               <DialogTitle className="text-2xl text-school-blue">
-                Lista de Materiales 2026
+                Lista de Materiales 2027
               </DialogTitle>
               <DialogDescription>
                 Seleccioná el nivel educativo para ver las listas de materiales.
@@ -383,7 +383,7 @@ const MaterialesModal = ({ index }: { index: number }) => {
           <>
             <DialogHeader>
               <DialogTitle className="text-2xl text-school-blue">
-                Lista de Materiales 2026 -{" "}
+                Lista de Materiales 2027 -{" "}
                 {view === "primario" ? "Nivel Primario" : "Nivel Secundario"}
               </DialogTitle>
               <DialogDescription>

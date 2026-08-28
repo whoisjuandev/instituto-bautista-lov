@@ -1,4 +1,4 @@
-import { Camera, Calendar, Music, Trophy, Palette, Globe } from "lucide-react"
+import { Calendar, Music, Trophy, Palette, Globe, Sprout } from "lucide-react"
 
 const SchoolLife = () => {
   const activities = [
@@ -28,9 +28,9 @@ const SchoolLife = () => {
       icon: Music,
     },
     {
-      title: "Momentos Especiales",
-      description: "Recreos y encuentros que crean vínculos",
-      icon: Camera,
+      title: "Huerta",
+      description: "Cultivamos la tierra y aprendemos a cuidar nuestro entorno",
+      icon: Sprout,
     },
   ]
 

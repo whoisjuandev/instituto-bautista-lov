@@ -48,7 +48,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-white/80 leading-relaxed mb-6 max-w-md">
-              Formamos lideres integros con valores cristianos solidos y
+              Formamos ciudadanos integros con valores cristianos solidos y
               excelencia academica que transforma vidas y comunidades.
             </p>
 

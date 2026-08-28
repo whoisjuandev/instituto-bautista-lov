@@ -58,7 +58,7 @@ const AboutUs = () => {
             <p className="text-gray-700 mb-8 leading-relaxed">
               Creemos en el potencial único de cada estudiante y nos
               comprometemos a acompañarlos en su crecimiento académico,
-              emocional y espiritual, preparándolos para ser líderes del mañana
+              emocional y espiritual, preparándolos para ser ciudadanos del mañana
               con corazón de servicio.
             </p>
           </div>

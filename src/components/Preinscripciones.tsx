@@ -52,7 +52,7 @@ const Preinscripciones = () => {
             }}
           >
             <Calendar className="w-4 h-4" />
-            Ciclo Lectivo 2026
+            Ciclo Lectivo 2027
           </div>
         </div>
 
@@ -62,7 +62,7 @@ const Preinscripciones = () => {
             className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold mb-2"
             style={{ color: "hsl(53, 91%, 61%)" }}
           >
-            Preinscripciones 2026
+            Preinscripciones 2027
           </h2>
           <h3
             className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold"
@@ -86,7 +86,7 @@ const Preinscripciones = () => {
             className="text-base md:text-lg"
             style={{ color: "hsl(0, 0%, 100%)" }}
           >
-            Ya podés preinscribirte al Ciclo Lectivo 2026 para{" "}
+            Ya podés preinscribirte al Ciclo Lectivo 2027 para{" "}
             <span
               style={{ color: "hsl(53, 91%, 61%)" }}
               className="font-semibold"

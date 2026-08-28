@@ -102,7 +102,7 @@ const Values = () => {
         {/* Mission statement */}
         <div className="text-center mt-16">
           <h3 className="text-2xl md:text-3xl font-playfair font-bold text-school-blue mb-6">
-            Formamos Líderes Íntegros
+            Formamos Ciudadanos Íntegros
           </h3>
           <p className="text-gray-700 text-lg max-w-3xl mx-auto leading-relaxed">
             Cada día trabajamos para que nuestros estudiantes internalicen estos valores 
