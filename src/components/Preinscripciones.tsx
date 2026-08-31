@@ -5,17 +5,14 @@ import {
   GraduationCap,
   Calendar,
   ChevronRight,
-} from "lucide-react"
-import { Button } from "./ui/button"
+} from "lucide-react";
+import { Button } from "./ui/button";
 
 const Preinscripciones = () => {
   const handlePreinscripcion = () => {
-    // TODO: Reemplazar con el link real de Google Forms cuando esté disponible
-    window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLScPhNdw02D7vLrh98ewHaMpBV5Zi0b6EAUNiYan9iIc5DA2MQ/viewform?usp=header",
-      "_blank"
-    )
-  }
+    // Open the current Google Form for preinscription.
+    window.open("https://forms.gle/7YL2FN3hUETVqKN47", "_blank");
+  };
 
   const educationalLevels = [
     {
@@ -33,7 +30,7 @@ const Preinscripciones = () => {
       title: "Nivel Secundario",
       description: "Preparación integral y liderazgo",
     },
-  ]
+  ];
 
   return (
     <section
@@ -155,7 +152,7 @@ const Preinscripciones = () => {
         </p>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Preinscripciones
+export default Preinscripciones;

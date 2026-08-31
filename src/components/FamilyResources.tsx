@@ -1,5 +1,5 @@
-import React, { useState, memo, useCallback } from "react"
-import { FileText, Shirt, School, Download, AlertCircle } from "lucide-react"
+import React, { useState, memo, useCallback } from "react";
+import { FileText, Shirt, School, Download, AlertCircle } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -7,9 +7,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 // ── Static data ──
 
@@ -50,7 +50,7 @@ const uniformesByLevel = [
       "Abrigos azul marino",
     ],
   },
-]
+];
 
 const forms = [
   {
@@ -74,7 +74,7 @@ const forms = [
       "/pdfs/family-resources/formularios/ficha-medica-obligatoria.pdf",
     available: true,
   },
-]
+];
 
 const materialesPrimario = [
   {
@@ -126,7 +126,7 @@ const materialesPrimario = [
       "/pdfs/family-resources/nivel-primario/materiales-septimo-grado.pdf",
     available: true,
   },
-]
+];
 
 const materialesSecundario = [
   {
@@ -150,17 +150,22 @@ const materialesSecundario = [
       "/pdfs/family-resources/nivel-secundario/materiales-tercer-anio.pdf",
     available: true,
   },
-  // { grade: "4°", name: "4° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-cuarto-anio.pdf", available: true },
-  // { grade: "5°", name: "5° Año", downloadUrl: "/pdfs/family-resources/nivel-secundario/materiales-quinto-anio.pdf", available: true },
-]
+  {
+    grade: "4°",
+    name: "4° Año",
+    downloadUrl:
+      "/pdfs/family-resources/nivel-secundario/materiales-cuarto-anio.pdf",
+    available: true,
+  },
+];
 
 const handleDownload = (url: string, _fileName: string, available: boolean) => {
   if (!available) {
-    alert("Este documento estará disponible próximamente.")
-    return
+    alert("Este documento estará disponible próximamente.");
+    return;
   }
-  window.open(url, "_blank", "noopener,noreferrer")
-}
+  window.open(url, "_blank", "noopener,noreferrer");
+};
 
 // ── Reusable card (no state) ──
 
@@ -170,12 +175,12 @@ const ResourceCard = memo(
     index,
   }: {
     resource: {
-      id: string
-      title: string
-      icon: React.ElementType
-      description: string
-    }
-    index: number
+      id: string;
+      title: string;
+      icon: React.ElementType;
+      description: string;
+    };
+    index: number;
   }) => (
     <div
       className="bg-white border border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:shadow-lg hover:border-school-yellow/50 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in h-full flex flex-col justify-between"
@@ -191,9 +196,9 @@ const ResourceCard = memo(
         <p className="text-gray-600 leading-relaxed">{resource.description}</p>
       </div>
     </div>
-  )
-)
-ResourceCard.displayName = "ResourceCard"
+  ),
+);
+ResourceCard.displayName = "ResourceCard";
 
 // ── Uniformes Modal (self-contained) ──
 
@@ -248,8 +253,8 @@ const UniformesModal = memo(({ index }: { index: number }) => (
       </div>
     </DialogContent>
   </Dialog>
-))
-UniformesModal.displayName = "UniformesModal"
+));
+UniformesModal.displayName = "UniformesModal";
 
 // ── Formularios Modal (self-contained) ──
 
@@ -313,24 +318,24 @@ const FormulariosModal = memo(({ index }: { index: number }) => (
       </div>
     </DialogContent>
   </Dialog>
-))
-FormulariosModal.displayName = "FormulariosModal"
+));
+FormulariosModal.displayName = "FormulariosModal";
 
 // ── Materiales Modal (self-contained, owns its own state) ──
 
 const MaterialesModal = ({ index }: { index: number }) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   const [view, setView] = useState<"selector" | "primario" | "secundario">(
-    "selector"
-  )
+    "selector",
+  );
 
   const onOpenChange = useCallback((isOpen: boolean) => {
-    setOpen(isOpen)
-    if (!isOpen) setView("selector")
-  }, [])
+    setOpen(isOpen);
+    if (!isOpen) setView("selector");
+  }, []);
 
   const materiales =
-    view === "primario" ? materialesPrimario : materialesSecundario
+    view === "primario" ? materialesPrimario : materialesSecundario;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -410,7 +415,7 @@ const MaterialesModal = ({ index }: { index: number }) => {
                     handleDownload(
                       material.downloadUrl,
                       material.name,
-                      material.available
+                      material.available,
                     )
                   }
                   disabled={!material.available}
@@ -427,8 +432,8 @@ const MaterialesModal = ({ index }: { index: number }) => {
         )}
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
 
 // ── Main Section (stateless regarding modals) ──
 
@@ -436,8 +441,8 @@ const FamilyResources = () => {
   const scrollToContact = useCallback(() => {
     document
       .querySelector("#contacto")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" })
-  }, [])
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
 
   return (
     <section id="recursos-familias" className="section-padding bg-white">
@@ -469,7 +474,7 @@ const FamilyResources = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default FamilyResources
+export default FamilyResources;
