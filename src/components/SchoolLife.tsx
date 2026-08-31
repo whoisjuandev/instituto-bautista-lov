@@ -1,4 +1,4 @@
-import { Calendar, Music, Trophy, Palette, Globe, Sprout } from "lucide-react"
+import { Calendar, Sun, Trophy, Palette, Globe, Sprout } from "lucide-react"
 
 const SchoolLife = () => {
   const activities = [
@@ -23,9 +23,10 @@ const SchoolLife = () => {
       icon: Globe,
     },
     {
-      title: "Actividades Musicales",
-      description: "Coros y grupos que alimentan el alma",
-      icon: Music,
+      title: "Tradiciones Argentinas",
+      description:
+        "Danzas folklóricas y costumbres que mantienen vivas nuestras raíces.",
+      icon: Sun,
     },
     {
       title: "Huerta",
