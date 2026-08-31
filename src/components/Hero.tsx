@@ -1,13 +1,13 @@
-import { ChevronDown } from "lucide-react"
+import { ChevronDown } from "lucide-react";
 const Hero = () => {
   const scrollToNextSection = () => {
-    const element = document.querySelector("#nosotros")
+    const element = document.querySelector("#nosotros");
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
-      })
+      });
     }
-  }
+  };
   return (
     <section
       id="inicio"
@@ -19,7 +19,12 @@ const Hero = () => {
         <div className="absolute inset-0">
           <img
             src="/images/portada.webp"
-            alt="Background"
+            alt=""
+            aria-hidden="true"
+            width={1920}
+            height={1506}
+            fetchPriority="low"
+            decoding="async"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
@@ -69,11 +74,11 @@ const Hero = () => {
             </button>
             <button
               onClick={() => {
-                const element = document.querySelector("#preinscripciones")
+                const element = document.querySelector("#preinscripciones");
                 if (element) {
                   element.scrollIntoView({
                     behavior: "smooth",
-                  })
+                  });
                 }
               }}
               className="btn-secondary text-lg"
@@ -86,6 +91,7 @@ const Hero = () => {
         {/* Scroll indicator */}
         <button
           onClick={scrollToNextSection}
+          aria-label="Desplazarse a la siguiente sección"
           className="bottom-12 left-1/2 transform -translate-x-1/2 text-white/70 hover:text-school-yellow transition-colors duration-300 animate-bounce"
         >
           <ChevronDown size={32} />
@@ -95,6 +101,6 @@ const Hero = () => {
       {/* Background pattern */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
     </section>
-  )
-}
-export default Hero
+  );
+};
+export default Hero;

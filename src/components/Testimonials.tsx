@@ -1,4 +1,4 @@
-import { Quote, Star } from "lucide-react"
+import { Quote, Star } from "lucide-react";
 
 const Testimonials = () => {
   const testimonials = [
@@ -20,7 +20,7 @@ const Testimonials = () => {
         "Me siento muy afortunada de haber elegido el Instituto Bautista del Centro para la educación de mi hija. La escuela se destaca por su enfoque a la educación cristiana. Esto ha permitido que mi hija crezca y se desarrole de manera integral, no solo académicamente sino también en sus habilidades sociales y emocionales. La directora y los docentes del establecimiento escolar han demostrado un compromiso genuino con la educación y el bienestar de los estudiantes, lo que ha sido fundamental para que mi hija se sienta cómoda y segura en el entorno escolar. Es por ello que también elegimos para que continúe sus estudios secundarios en esta institución. Estoy muy satisfecha con la elección del Instituto Bautista, recomiendo esta escuela a cualquier padre o madre que busque una educación excelente para sus hijos.",
       rating: 5,
     },
-  ]
+  ];
 
   return (
     <section className="section-padding bg-white">
@@ -67,9 +67,9 @@ const Testimonials = () => {
 
               {/* Author */}
               <div className="border-t border-gray-200 pt-4">
-                <h4 className="font-semibold text-school-blue">
+                <h3 className="font-semibold text-school-blue">
                   {testimonial.role}
-                </h4>
+                </h3>
               </div>
             </div>
           ))}
@@ -93,7 +93,7 @@ const Testimonials = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;

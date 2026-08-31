@@ -1,0 +1,11 @@
+# Instituto Bautista del Centro
+
+> Sitio oficial del Instituto Bautista del Centro, institución educativa cristiana de Eldorado, Misiones, Argentina.
+
+- [Inicio](https://institutobautistadelcentro.com/): Información institucional, propuesta educativa y acceso a las secciones principales.
+- [Quiénes Somos](https://institutobautistadelcentro.com/#nosotros): Misión, comunidad y características de la institución.
+- [Niveles Educativos](https://institutobautistadelcentro.com/#niveles): Educación inicial, primaria y secundaria.
+- [Vida Escolar](https://institutobautistadelcentro.com/#vida-escolar): Talleres, deportes, eventos, proyectos y actividades escolares.
+- [Recursos para Familias](https://institutobautistadelcentro.com/#recursos-familias): Uniformes, formularios y listas de materiales 2027.
+- [Contacto](https://institutobautistadelcentro.com/#contacto): Dirección, teléfonos, correos y horarios de atención.
+- [Preinscripciones 2027](https://institutobautistadelcentro.com/#preinscripciones): Información y acceso al formulario externo de preinscripción.

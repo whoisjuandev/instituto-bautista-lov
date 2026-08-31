@@ -1,4 +1,4 @@
-import { Heart, BookOpen, Users, Award } from "lucide-react"
+import { Heart, BookOpen, Users, Award } from "lucide-react";
 
 const AboutUs = () => {
   const features = [
@@ -26,7 +26,7 @@ const AboutUs = () => {
       description:
         "Formación en principios cristianos que forjan carácter y liderazgo",
     },
-  ]
+  ];
 
   return (
     <section id="nosotros" className="section-padding bg-white">
@@ -58,8 +58,8 @@ const AboutUs = () => {
             <p className="text-gray-700 mb-8 leading-relaxed">
               Creemos en el potencial único de cada estudiante y nos
               comprometemos a acompañarlos en su crecimiento académico,
-              emocional y espiritual, preparándolos para ser ciudadanos del mañana
-              con corazón de servicio.
+              emocional y espiritual, preparándolos para ser ciudadanos del
+              mañana con corazón de servicio.
             </p>
           </div>
 
@@ -69,7 +69,11 @@ const AboutUs = () => {
               <div className="absolute inset-0 rounded-2xl overflow-hidden hero-gradient">
                 <img
                   src="/images/estudiantes-1.webp"
-                  alt="Background"
+                  alt="Estudiantes del Instituto Bautista del Centro"
+                  width={1280}
+                  height={1024}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover opacity-90"
                 />
               </div>
@@ -102,7 +106,7 @@ const AboutUs = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutUs
+export default AboutUs;

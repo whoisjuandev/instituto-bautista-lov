@@ -205,7 +205,10 @@ ResourceCard.displayName = "ResourceCard";
 const UniformesModal = memo(({ index }: { index: number }) => (
   <Dialog>
     <DialogTrigger asChild>
-      <div>
+      <button
+        type="button"
+        className="h-full w-full appearance-none border-0 bg-transparent p-0 text-left"
+      >
         <ResourceCard
           resource={{
             id: "uniformes",
@@ -215,7 +218,7 @@ const UniformesModal = memo(({ index }: { index: number }) => (
           }}
           index={index}
         />
-      </div>
+      </button>
     </DialogTrigger>
     <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
       <DialogHeader>
@@ -261,7 +264,10 @@ UniformesModal.displayName = "UniformesModal";
 const FormulariosModal = memo(({ index }: { index: number }) => (
   <Dialog>
     <DialogTrigger asChild>
-      <div>
+      <button
+        type="button"
+        className="h-full w-full appearance-none border-0 bg-transparent p-0 text-left"
+      >
         <ResourceCard
           resource={{
             id: "formularios",
@@ -271,7 +277,7 @@ const FormulariosModal = memo(({ index }: { index: number }) => (
           }}
           index={index}
         />
-      </div>
+      </button>
     </DialogTrigger>
     <DialogContent className="max-w-2xl">
       <DialogHeader>
@@ -340,7 +346,10 @@ const MaterialesModal = ({ index }: { index: number }) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
-        <div>
+        <button
+          type="button"
+          className="h-full w-full appearance-none border-0 bg-transparent p-0 text-left"
+        >
           <ResourceCard
             resource={{
               id: "materiales",
@@ -350,7 +359,7 @@ const MaterialesModal = ({ index }: { index: number }) => {
             }}
             index={index}
           />
-        </div>
+        </button>
       </DialogTrigger>
       <DialogContent className="max-w-3xl">
         {view === "selector" && (

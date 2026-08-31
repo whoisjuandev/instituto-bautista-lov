@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const Contact = () => {
   const contactInfo = [
@@ -39,7 +39,7 @@ const Contact = () => {
         { label: "Nivel Inicial", hours: "8-11 am" },
       ],
     },
-  ]
+  ];
 
   return (
     <section id="contacto" className="section-padding bg-school-blue">
@@ -153,19 +153,19 @@ const Contact = () => {
 
           {/* WhatsApp CTA */}
           <div className="max-w-md mx-auto">
-            <div className="bg-green-500 rounded-lg p-6 text-center animate-scale-in shadow-xl">
+            <div className="bg-green-700 rounded-lg p-6 text-center animate-scale-in shadow-xl">
               <MessageCircle className="text-white mx-auto mb-4" size={32} />
               <h4 className="text-white font-bold text-xl mb-2">
                 ¿Tenés consultas?
               </h4>
-              <p className="text-white/90 mb-6 text-base">
+              <p className="text-white mb-6 text-base">
                 Escribinos por WhatsApp para una respuesta inmediata
               </p>
               <a
                 href="https://wa.me/543751502744"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full bg-white text-green-500 font-semibold py-4 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-300 text-lg"
+                className="block w-full bg-white text-green-700 font-semibold py-4 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-300 text-lg"
               >
                 Escribir por WhatsApp
               </a>
@@ -174,7 +174,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
