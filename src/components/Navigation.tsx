@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+      setIsScrolled(window.scrollY > 50);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Inicio", href: "#inicio" },
@@ -22,15 +22,15 @@ const Navigation = () => {
     { name: "Recursos para Familias", href: "#recursos-familias" },
     { name: "Valores", href: "#valores" },
     { name: "Contacto", href: "#contacto" },
-  ]
+  ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMobileMenuOpen(false)
-  }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <nav
@@ -110,7 +110,7 @@ const Navigation = () => {
         )}
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

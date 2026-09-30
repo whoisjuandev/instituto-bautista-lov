@@ -1,4 +1,4 @@
-import { Heart, Facebook, Instagram, Youtube, Mail } from "lucide-react"
+import { Heart, Facebook, Instagram, Youtube, Mail } from "lucide-react";
 
 const Footer = () => {
   const quickLinks = [
@@ -8,7 +8,7 @@ const Footer = () => {
     { name: "Vida Escolar", href: "#vida-escolar" },
     { name: "Valores", href: "#valores" },
     { name: "Contacto", href: "#contacto" },
-  ]
+  ];
 
   const socialLinks = [
     {
@@ -16,14 +16,14 @@ const Footer = () => {
       href: "https://www.facebook.com/profile.php?id=100063516562917",
       name: "Facebook",
     },
-  ]
+  ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <footer className="bg-school-blue text-white">
@@ -158,7 +158,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

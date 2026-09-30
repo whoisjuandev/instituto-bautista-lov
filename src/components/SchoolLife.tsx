@@ -1,4 +1,4 @@
-import { Calendar, Sun, Trophy, Palette, Globe, Sprout } from "lucide-react"
+import { Calendar, Sun, Trophy, Palette, Globe, Sprout } from "lucide-react";
 
 const SchoolLife = () => {
   const activities = [
@@ -33,7 +33,7 @@ const SchoolLife = () => {
       description: "Cultivamos la tierra y aprendemos a cuidar nuestro entorno",
       icon: Sprout,
     },
-  ]
+  ];
 
   const galleryPlaceholders = [
     "Estudiantes en el laboratorio de ciencias",
@@ -44,7 +44,7 @@ const SchoolLife = () => {
     "Graduación de secundaria",
     "Proyecto solidario en la comunidad",
     "Festival de talentos",
-  ]
+  ];
 
   return (
     <section id="vida-escolar" className="section-padding bg-white">
@@ -132,7 +132,7 @@ const SchoolLife = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SchoolLife
+export default SchoolLife;
