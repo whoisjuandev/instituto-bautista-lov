@@ -249,7 +249,7 @@ const Index = () => {
           </div>
           <div className="hero-visual">
             <div className="hero-sun" aria-hidden="true" />
-            <img className="hero-image" src="/images/portada.webp" width="1920" height="1506" alt="Alumnos del Instituto Bautista del Centro comparten un encuentro escolar" fetchPriority="high" />
+            <img className="hero-image" src="/images/portada.webp" width="1920" height="1506" alt="Alumnos del Instituto Bautista del Centro comparten un encuentro escolar" />
           </div>
         </section>
 
